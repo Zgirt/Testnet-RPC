@@ -2,11 +2,9 @@
 
 This docker-compose is for the RPC of the public test network.
 
-## Setup
+## Prerequisites
 
-To use it for your node, you need to:
-
-### 1. Enable logging and passcodes in `private_settings.h`
+Before running, you need to configure your node's `private_settings.h`:
 
 ```cpp
 #define ENABLE_QUBIC_LOGGING_EVENT 1 // turn on logging events
@@ -16,9 +14,7 @@ static unsigned long long logReaderPasscodes[4] = {
 };
 ```
 
-### 2. Change the IP to your own in the docker-compose file
-
-Update these two lines with your node's IP:
+Also change the IP to your own in the docker-compose file:
 
 ```yaml
 QUBIC_EVENTS_POOL_NODE_PASSCODES: "YOUR_IP:AAAAAAAAAAEAAAAAAAAAAgAAAAAAAAADAAAAAAAAAAQ="
@@ -28,28 +24,43 @@ QUBIC_EVENTS_POOL_NODE_PASSCODES: "YOUR_IP:AAAAAAAAAAEAAAAAAAAAAgAAAAAAAAADAAAAA
 QUBIC_NODES_QUBIC_PEER_LIST: "YOUR_IP" # Insert list of node IPs here. Ex: "123.12.12.123;321.32.32.321;312.31.31.312"
 ```
 
-## Run
+## Quick Start
+
+### 1. Clone the repository
 
 ```bash
-docker compose up -d
+git clone https://github.com/Zgirt/Testnet-RPC.git
 ```
 
-## Stats API Setup
-
-To set up the stats API, you need to parse the spectrum and upload data to the database:
-
-### 1. Download the spectrum file from [Releases](https://github.com/Zgirt/Testnet-RPC/releases)
-
-### 2. Extract the spectrum file
+### 2. Enter the directory
 
 ```bash
+cd Testnet-RPC
+```
+
+### 3. Download and extract the spectrum file
+
+```bash
+wget https://github.com/Zgirt/Testnet-RPC/releases/download/spectrum189/spectrum.tar.gz
 tar -xzf spectrum.tar.gz
 ```
 
-### 3. Run the setup script
+### 4. Run the spectrum parser
 
 ```bash
+chmod +x qubic-stats-processor
 ./setupSpectrumData.sh
 ```
 
-This runs the spectrum parser to populate the database with the required data.
+### 5. Install Docker Compose (if not installed)
+
+```bash
+curl -L "https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+```
+
+### 6. Start the services
+
+```bash
+docker-compose up -d
+```
