@@ -14,6 +14,8 @@ static unsigned long long logReaderPasscodes[4] = {
 };
 ```
 
+Change your passcode from 1,2,3,4 and replace it with your own numbers.
+
 Also change the IP to your own in the docker-compose file:
 
 ```yaml
