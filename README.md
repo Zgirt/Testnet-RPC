@@ -33,3 +33,13 @@ QUBIC_NODES_QUBIC_PEER_LIST: "YOUR_IP" # Insert list of node IPs here. Ex: "123.
 ```bash
 docker compose up -d
 ```
+
+## Stats API Setup
+
+To set up the stats API, you need to parse the spectrum and upload data to the database:
+
+```bash
+./setupSpectrumData.sh
+```
+
+This runs the spectrum parser to populate the database with the required data.
