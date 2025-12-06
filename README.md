@@ -38,6 +38,16 @@ docker compose up -d
 
 To set up the stats API, you need to parse the spectrum and upload data to the database:
 
+### 1. Download the spectrum file from [Releases](https://github.com/Zgirt/Testnet-RPC/releases)
+
+### 2. Extract the spectrum file
+
+```bash
+tar -xzf spectrum.tar.gz
+```
+
+### 3. Run the setup script
+
 ```bash
 ./setupSpectrumData.sh
 ```
