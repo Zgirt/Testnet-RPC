@@ -26,41 +26,20 @@ QUBIC_NODES_QUBIC_PEER_LIST: "YOUR_IP" # Insert list of node IPs here. Ex: "123.
 
 ## Quick Start
 
-### 1. Clone the repository
+1. ```git clone https://github.com/Zgirt/Testnet-RPC.git```
 
-```bash
-git clone https://github.com/Zgirt/Testnet-RPC.git
-```
+2. ```cd Testnet-RPC```
 
-### 2. Enter the directory
+3. ```wget https://github.com/Zgirt/Testnet-RPC/releases/download/spectrum189/spectrum.tar.gz```
 
-```bash
-cd Testnet-RPC
-```
+   ```tar -xzf spectrum.tar.gz```
 
-### 3. Download and extract the spectrum file
+4. ```chmod +x qubic-stats-processor```
 
-```bash
-wget https://github.com/Zgirt/Testnet-RPC/releases/download/spectrum189/spectrum.tar.gz
-tar -xzf spectrum.tar.gz
-```
+   ```./setupSpectrumData.sh```
 
-### 4. Run the spectrum parser
+5. ```curl -L "https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose```
 
-```bash
-chmod +x qubic-stats-processor
-./setupSpectrumData.sh
-```
+   ```chmod +x /usr/local/bin/docker-compose```
 
-### 5. Install Docker Compose (if not installed)
-
-```bash
-curl -L "https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-```
-
-### 6. Start the services
-
-```bash
-docker-compose up -d
-```
+6. ```docker-compose up -d```
