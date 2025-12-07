@@ -44,7 +44,7 @@ QUBIC_NODES_QUBIC_PEER_LIST: "YOUR_IP" # Insert list of node IPs here. Ex: "123.
 
 ### 4. Run the spectrum parser
 
-```chmod +x qubic-stats-processor```
+```wget https://github.com/Zgirt/Testnet-RPC/releases/download/spectrum189/qubic-stats-processor && chmod +x qubic-stats-processor```
 
 ```./setupSpectrumData.sh```
 
